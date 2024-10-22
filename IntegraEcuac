@@ -1,0 +1,16 @@
+import sympy as sp
+
+# Definir la variable simbólica
+x = sp.symbols('x')
+
+# Definir la función a integrar
+funcion = x**2 + 3*x + 2
+
+# Calcular la integral indefinida
+integral_indefinida = sp.integrate(funcion, x)
+
+# Calcular la integral definida de 0 a 2
+integral_definida = sp.integrate(funcion, (x, 0, 2))
+
+print(f"Integral indefinida: {integral_indefinida}")
+print(f"Integral definida de 0 a 2: {integral_definida}")
