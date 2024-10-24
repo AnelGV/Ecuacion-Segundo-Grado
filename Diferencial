@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+
+# Definir la ecuación diferencial
+def edo(t, y):
+    return -2 * y
+
+# Condición inicial
+y0 = [1]
+
+# Intervalo de solución
+t_span = (0, 5)  # Desde t = 0 hasta t = 5
+
+# Puntos donde se evaluará la solución
+t_eval = np.linspace(t_span[0], t_span[1], 100)
+
+# Resolver la ecuación diferencial
+sol = solve_ivp(edo, t_span, y0, t_eval=t_eval)
+
+# Graficar la solución
+plt.plot(sol.t, sol.y[0], label='y(t)')
+plt.xlabel('t')
+plt.ylabel('y')
+plt.title('Solución de la EDO: dy/dx = -2y')
+plt.legend()
+plt.grid(True)
+plt.show()
